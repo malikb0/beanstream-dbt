@@ -8,10 +8,13 @@ BeanStream is a synthetic coffee-subscription retailer with 2024-only source dat
 
 **Verified result:** `dbt build` passes **95/95** checks. The non-cancelled business reconciles to **$7,261.50 revenue**, **99 orders**, **448 units**, **$73.35 average order value**, and a **17.5% order cancellation rate** — while all **270 order lines**, cancellations included, remain in the fact.
 
+[![CI](https://github.com/malikb0/beanstream-dbt/actions/workflows/dbt-ci.yml/badge.svg)](https://github.com/malikb0/beanstream-dbt/actions/workflows/dbt-ci.yml)
 [![dbt](https://img.shields.io/badge/dbt-1.12.6-FF694A)](https://www.getdbt.com/)
 [![PostgreSQL 16](https://img.shields.io/badge/PostgreSQL-16-4169E1)](https://www.postgresql.org/)
 [![tests 95/95](https://img.shields.io/badge/tests-95%2F95-brightgreen)](#quality-gate)
 [![license MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+**Repo:** [https://github.com/malikb0/beanstream-dbt](https://github.com/malikb0/beanstream-dbt) · **CI:** [green run](https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125)
 
 **Jump to:** [Architecture](#architecture) · [Data model](#data-model) · [Numbers](#the-numbers) · [Quickstart](#quickstart) · [Case study](CASE-STUDY.md)
 
@@ -263,7 +266,7 @@ Other evidence:
 - **KPI contract:** `seeds/expected_kpis.csv` is reconciled by `tests/assert_kpi_reconciliation.sql`.
 - **Line-level checks:** `assert_line_amount.sql` and `assert_positive_quantity.sql`.
 - **Grain proof:** 270 rows, 270 distinct `order_item_id`, 120 distinct `order_id`.
-- **CI workflow:** `.github/workflows/dbt-ci.yml` starts `postgres:16`, loads the raw CSVs, and runs `dbt build`. The workflow is committed; the first green GitHub run is pending the first push, so no CI badge is shown yet.
+- **CI workflow:** [`.github/workflows/dbt-ci.yml`](.github/workflows/dbt-ci.yml) starts `postgres:16`, loads the raw CSVs, and runs `dbt build`. [The public run is green](https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125).
 
 <a id="design-decisions"></a>
 ## 🧠 Design decisions
@@ -290,7 +293,7 @@ The incremental limitation is deliberate and visible: the filter is `order_item_
 - **Incremental is a correctness pattern here, not a scale claim.** 270 rows do not need incremental processing; the point is that the rerun is idempotent.
 - **No orchestration or cloud deployment.** The project runs locally and in a single CI job; it does not include scheduling, monitoring, or alerting.
 - **Date text names depend on the PostgreSQL locale.** Numeric date fields are stable for logic; use those.
-- **The first GitHub CI run is pending.** The workflow is present, but this README does not claim a green remote build until it exists.
+- **CI is one clean build, not a production deployment.** The public workflow is green ([run](https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125)); it has no scheduler, monitoring, or alerting.
 
 <a id="learning-lab"></a>
 ## 🪜 Built as a learning lab
@@ -319,7 +322,7 @@ The ladder is included as a replayable design record, not a to-do list. The mode
 
 1. **Handle late-arriving corrections.** Add `updated_at` to the raw contract, switch the fact to a merge or bounded lookback, and test that a changed line is updated once.
 2. **Add model contracts and exposures.** Make the KPI columns explicitly typed and connect them to the downstream reporting surface.
-3. **Publish the first CI run.** Push the repository, confirm the `postgres:16` service job is green, then add the CI badge and link the run.
+3. **Keep the public build green.** Extend CI with a scheduled run and cache the dbt packages when the model count grows.
 4. **Stress the incremental path.** Generate a larger synthetic feed and a correction batch so the append-only limit is demonstrated, not just documented.
 5. **Add orchestration and freshness checks.** Schedule the build, alert on failure, and stop treating a local `make build` as the only operational signal.
 

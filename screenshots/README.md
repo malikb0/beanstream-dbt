@@ -11,7 +11,7 @@ A screenshot is evidence only when the command, page, and caption below match th
 - Start from a clean build: `make build` must end with `PASS=95 WARN=0 ERROR=0` and `TOTAL=95`.
 - Generate and serve the docs: `make docs`, then `make serve`.
 - Capture the relevant panel only; crop browser chrome where it adds nothing.
-- Use a readable desktop width (the captured 01 image is **1800×1150**).
+- Use a readable desktop width (the captured 01 image is **1760×1160**).
 - Do not include local absolute paths, secrets, personal data, or unrelated windows.
 - Re-capture after a change that alters the model graph, column list, tests, or KPI numbers.
 - Store the caption beside the image in the README; keep the file name exactly as listed.

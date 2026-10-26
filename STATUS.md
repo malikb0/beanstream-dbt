@@ -11,13 +11,13 @@
 | Field | Value |
 |---|---|
 | Project | BeanStream dbt Learning Lab |
-| Status | 🟢 **Task 6 passed** — Task 7 ready, not started |
-| Stage | Task 7 — evidence + publication |
-| Build | 95/95 checks; incremental reruns are idempotent |
+| Status | 🟢 **Complete** — public repo, screenshots, and green CI |
+| Stage | Published and verified |
+| Build | 95/95 local and 95/95 in GitHub Actions |
 | Models | Staging 5; dimensions 40 / 12 / 4 / 362; fact 270 |
-| Tests | 84 data tests pass; failure drill observed and removed |
+| Tests | 84 data tests; 95/95 total checks; CI green |
 | Reference | `~/projects/beanstream-dbt-reference` (one-off, not a repeatable pattern) |
-| Next action | Open Task 7; evidence and publication not started |
+| Next action | Maintain; see [https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125](https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125) |
 
 ## ✅ Implemented / provided
 
@@ -39,21 +39,29 @@
 | 4. `fct_sales` | ✅ passed | You | 270 lines |
 | 5. Tests + KPI reconciliation | ✅ passed | You | 95 checks pass |
 | 6. Incremental + failure drill | ✅ passed | You | idempotent second run |
-| 7. Evidence + publication | ▶️ next — not started | You + agent | public repo, CI green |
+| 7. Evidence + publication | ✅ passed | You + agent | public repo, CI green |
 
 ## 🚧 Blockers
 
-- **None.** Task 6 passed: incremental fact, idempotent reruns, **95/95** checks.
-- Task 7 has not started; no public evidence or CI yet.
+- **None.** The project is public and the CI run is green.
 
-## 🔜 Next action
+## 🔗 Published evidence
 
-**Task 7 — evidence + publication.**
+| Evidence | URL |
+|---|---|
+| Repository | [https://github.com/malikb0/beanstream-dbt](https://github.com/malikb0/beanstream-dbt) |
+| Green CI run | [https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125](https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125) |
+| Case study | [`CASE-STUDY.md`](CASE-STUDY.md) |
+| Screenshots | [`screenshots/`](screenshots/) |
 
-1. Read [`TASKS.md#task-7`](TASKS.md#task-7).
-2. Capture the required screenshots, outputs, and CI evidence.
-3. Prepare the public repo; publish only after owner approval.
-4. Do not call it published before CI is green and the URL exists.
+## ✅ Task 7 gate — passed
+
+**Verified 2026-10-26.**
+
+- Public repo resolves; no `.venv`, `target`, `logs`, `profiles.yml`, or secrets committed.
+- GitHub Actions PostgreSQL 16 service completed **95/95**.
+- Three real screenshots are linked and captured; KPI shot shows the corrected $7,261.50.
+- README, STATUS, and case study agree on the verified numbers.
 
 ## ✅ Task 6 gate — passed
 
@@ -71,7 +79,7 @@
 | Evidence | Where |
 |---|---|
 | Task ladder and gates | [`LEARNING-PATH.md`](LEARNING-PATH.md) |
-| Active task card | [`TASKS.md#task-7`](TASKS.md#task-7) |
+| Public repo | [malikb0/beanstream-dbt](https://github.com/malikb0/beanstream-dbt) |
 | Source contract | [`docs/data-dictionary.md`](docs/data-dictionary.md) |
 | Terms | [`docs/glossary.md`](docs/glossary.md) |
 | Runbook | [`docs/guide.md`](docs/guide.md) |
@@ -96,3 +104,4 @@
 | 2026-10-26 | Task 5 review: KPI test and source FKs registered; 90/95 checks; five KPI assertions remain. |
 | 2026-10-26 | Task 5 passed: 95/95 checks; all KPI assertions pass; Task 6 next. |
 | 2026-10-26 | Task 6 passed: incremental idempotency verified; 95/95 checks; Task 7 next. |
+| 2026-10-26 | Task 7 passed: screenshots, case study, public repo, and green CI. |

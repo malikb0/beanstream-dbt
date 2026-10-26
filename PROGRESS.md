@@ -7,7 +7,7 @@
 > commands and review details needed to resume quickly.
 
 **Last updated:** 2026-10-26
-**Active gate:** Task 7 — evidence + publication
+**Active gate:** Complete — published
 **Docs check:** `PROJECT DOCS: OK` (screenshot warning only)
 
 ## 🚦 Current state
@@ -20,7 +20,7 @@
 | Task 4 — `fct_sales` | ✅ passed; 16/16 fact tests |
 | Task 5 — KPI tests | ✅ passed; 95/95 checks |
 | Task 6 — incremental | ✅ passed; idempotent 270 rows |
-| Task 7 — evidence + publication | ▶️ next — not started |
+| Task 7 — evidence + publication | ✅ passed; public repo + green CI |
 
 ## ✅ Verified evidence
 
@@ -38,19 +38,19 @@
 - Full refresh → 270 rows; two normal runs → `INSERT 0 0` each; final **270 / 270 / max 270**.
 - KPI reconciliation covers all five seed metrics; AOV 73.35, cancellation 17.5%, customers with orders 39.
 - Temporary failure-drill test is absent; positive-quantity test passes.
+- Three screenshots captured: lineage, model detail, KPI query.
+- Public repo and CI green: https://github.com/malikb0/beanstream-dbt
 - No deprecation warnings.
 
 ## 🚧 Open cleanup
 
-None for Task 6. Incremental runs are idempotent and the full suite is green.
+None. Task 7 is complete and published.
 
 ## ▶️ Next session
 
-1. Read `TASKS.md#task-7`.
-2. Capture evidence: screenshots, run log, KPI proof, and CI.
-3. Prepare publication; do not publish until the owner approves.
-
-**Do not claim publication before the public repo and CI exist.**
+1. Extend CI with a schedule and dependency cache.
+2. Add model contracts/exposures and a late-arriving correction test.
+3. Keep the README, screenshots, and CI badge current.
 
 ## 🧪 Useful commands
 
@@ -75,7 +75,7 @@ python3 tools/check_project_docs.py .
 ## 📚 Read next
 
 - `STATUS.md` — current gate and user-facing next action.
-- `TASKS.md#task-7` — active task card.
+- `TASKS.md#task-7` — completed task card.
 - `docs/data-dictionary.md` — KPI formulas and source contract.
 
 Do not read CV-wide plans, trackers, or other projects unless the owner explicitly asks.
@@ -93,3 +93,4 @@ Do not read CV-wide plans, trackers, or other projects unless the owner explicit
 | 2026-10-26 | Task 5 review: KPI test and source FKs registered; 90/95 checks; five KPI checks remain. |
 | 2026-10-26 | Task 5 passed: 95/95 checks; all KPI assertions pass. |
 | 2026-10-26 | Task 6 passed: incremental fact; two reruns idempotent at 270; 95/95 build. |
+| 2026-10-26 | Task 7 passed: screenshots, README/case study, public repo, green CI. |
