@@ -1,0 +1,54 @@
+name: dbt CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: dbt-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  dbt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: learner
+          POSTGRES_PASSWORD: learner
+          POSTGRES_DB: warehouse
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U learner -d warehouse"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: learner
+      PGPASSWORD: learner
+      PGDATABASE: warehouse
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Show dbt version
+        run: dbt --version
+      - name: Load raw data
+        run: python scripts/load_raw.py
+      - name: Build and test
+        run: |
+          cp profiles.example.yml profiles.yml
+          dbt build --profiles-dir .
+      - name: Verify KPI contract
+        run: |
+          psql -c "select count(*) as rows, count(distinct order_item_id) as keys from marts.fct_sales;"

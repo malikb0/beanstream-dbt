@@ -1,0 +1,84 @@
+version: 2
+
+sources:
+  - name: beanstream_raw
+    description: "Raw CSV data from the beanstream e-commerce dataset"
+    schema: raw_beanstream
+    loader: csv
+
+    tables:
+      - name: customers
+        description: "Grain: Individual customer accounts"
+        columns:
+          - name: customer_id
+            description: "Primary key for the customer table"
+            data_tests:
+              - unique
+              - not_null
+          - name: email
+            description: "Customer's email address"
+            data_tests:
+              - not_null
+          - name: signup_date
+            description: "Date when the customer signed up"
+            data_tests:
+              - not_null
+
+      - name: products
+        description: "Grain: Individual product catalog entries"
+        columns:
+          - name: product_id
+            description: "Primary key for the product table"
+            data_tests:
+              - unique
+              - not_null
+          - name: product_name
+            description: "Name of the product"
+            data_tests:
+              - not_null
+
+      - name: orders
+        description: "Grain: Individual order transactions (one row per order)"
+        columns:
+          - name: order_id
+            description: "Primary key for the order table"
+            data_tests:
+              - unique
+              - not_null
+          - name: customer_id
+            description: "Foreign key to customers"
+            data_tests:
+              - relationships:
+                  arguments:
+                    to: source('beanstream_raw', 'customers')
+                    field: customer_id
+          - name: status
+            description: "Status of the order at time of purchase"
+            data_tests:
+              - accepted_values:
+                  arguments:
+                    values: ["completed", "shipped", "pending", "cancelled"]
+                    quote: true
+
+      - name: order_items
+        description: "Grain: Individual line items within an order"
+        columns:
+          - name: order_item_id
+            description: "Primary key for the order item table"
+            data_tests:
+              - unique
+              - not_null
+          - name: order_id
+            description: "Foreign key to orders"
+            data_tests:
+              - relationships:
+                  arguments:
+                    to: source('beanstream_raw', 'orders')
+                    field: order_id
+          - name: product_id
+            description: "Foreign key to products"
+            data_tests:
+              - relationships:
+                  arguments:
+                    to: source('beanstream_raw', 'products')
+                    field: product_id

@@ -1,0 +1,12 @@
+beanstream_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('PGHOST', 'localhost') }}"
+      port: "{{ env_var('PGPORT', '5434') | int }}"
+      user: "{{ env_var('PGUSER', 'learner') }}"
+      pass: "{{ env_var('PGPASSWORD', 'learner') }}"
+      dbname: "{{ env_var('PGDATABASE', 'warehouse') }}"
+      schema: dbt
+      threads: 4

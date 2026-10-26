@@ -1,0 +1,87 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Grain: Individual customer accounts after standardization"
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+      - name: email
+        data_tests:
+          - not_null
+      - name: country
+        data_tests:
+          - not_null
+  - name: stg_products
+    description: "Grain: Individual product catalog entries after standardization"
+    columns:
+      - name: product_id
+        data_tests:
+          - unique
+          - not_null
+      - name: unit_price
+        data_tests:
+          - not_null
+      - name: active
+        data_tests:
+          - not_null
+
+  - name: stg_orders
+    description: "Grain: Individual order transactions after standardization"
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - not_null
+      - name: order_status
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["completed", "shipped", "pending", "cancelled"]
+                quote: true
+      - name: channel
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["web", "app", "retail", "partner"]
+                quote: true
+
+  - name: stg_order_items
+    description: "Grain: Individual line items within an order after standardization"
+    columns:
+      - name: order_item_id
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        data_tests:
+          - not_null
+      - name: product_id
+        data_tests:
+          - not_null
+      - name: quantity
+        data_tests:
+          - not_null
+      - name: unit_price
+        data_tests:
+          - not_null
+      - name: line_amount
+        data_tests:
+          - not_null
+
+  - name: stg_channels
+    description: "Grain: Individual channel records after standardization"
+    columns:
+      - name: channel_id
+        data_tests:
+          - unique
+          - not_null
+      - name: channel
+        data_tests:
+          - unique
+          - not_null

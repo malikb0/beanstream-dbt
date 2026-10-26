@@ -1,0 +1,21 @@
+name: beanstream-dbt
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: learner
+      POSTGRES_PASSWORD: learner
+      POSTGRES_DB: warehouse
+    ports:
+      - "5434:5432"
+    volumes:
+      - beanstream_dbt_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U learner -d warehouse"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+volumes:
+  beanstream_dbt_pgdata:

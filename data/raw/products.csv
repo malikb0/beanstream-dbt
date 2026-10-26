@@ -1,0 +1,13 @@
+product_id,product_name,category,unit_price,active
+1,BeanStream House Blend,Coffee,12.50,True
+2,BeanStream Espresso Roast,Coffee,14.00,True
+3,Single-Origin Ethiopia,Coffee,18.75,True
+4,Single-Origin Colombia,Coffee,17.25,True
+5,Decaf Evening Blend,Coffee,13.00,True
+6,Loose-Leaf Earl Grey,Tea,9.50,True
+7,Loose-Leaf Green Sencha,Tea,11.00,True
+8,Herbal Chamomile,Tea,8.25,True
+9,Pour-Over Kettle,Equipment,45.00,True
+10,Ceramic Dripper,Equipment,22.00,True
+11,Reusable Filter Set,Accessories,15.50,True
+12,BeanStream Mug,Accessories,9.00,False

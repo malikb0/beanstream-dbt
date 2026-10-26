@@ -1,0 +1,203 @@
+version: 2
+
+models:
+
+# Customer dimension
+  - name: dim_customer
+    description: "Customer dimension table containing one row per customer with their basic information."
+    columns:
+      - name: customer_id
+        type: integer
+        description: "Unique identifier for the customer"
+        data_tests:
+          - not_null
+          - unique
+      - name: full_name
+        type: text
+        description: "Customer's first and last name concatenated with a space"
+        data_tests:
+          - not_null
+      - name: email
+        type: text
+        description: "Customer's email address"
+        data_tests:
+          - not_null
+      - name: city
+        type: text
+        description: "City where the customer resides"
+        data_tests:
+          - not_null
+      - name: country
+        type: text
+        description: "Country where the customer resides"
+        data_tests:
+          - not_null
+      - name: signup_date
+        type: date
+        description: "Date when the customer signed up"
+        data_tests:
+          - not_null
+
+  # Product dimension
+  - name: dim_product
+    description: "Product dimension table containing one row per product with catalog information."
+    columns:
+      - name: product_id
+        type: integer
+        description: "Unique identifier for the product"
+        data_tests:
+          - not_null
+          - unique
+      - name: product_name
+        type: text
+        description: "Name of the product"
+        data_tests:
+          - not_null
+      - name: category
+        type: text
+        description: "Category classification for the product"
+        data_tests:
+          - not_null
+      - name: unit_price
+        type: numeric(10,2)
+        description: "Current catalog price of the product"
+        data_tests:
+          - not_null
+
+  # Channel dimension
+  - name: dim_channel
+    description: "Channel dimension table containing one row per sales channel."
+    columns:
+      - name: channel_id
+        type: integer
+        description: "Unique identifier for the channel"
+        data_tests:
+          - not_null
+          - unique
+      - name: channel
+        type: text
+        description: "Name of the sales channel"
+        data_tests:
+          - not_null
+          - unique
+
+  # Date dimension
+  - name: dim_date
+    description: "Calendar dimension table containing one row per day in the order date range."
+    columns:
+    - name: date_id
+      type: integer
+      description: "Date identifier in YYYYMMDD format"
+      data_tests:
+        - not_null
+        - unique
+    - name: full_date
+      type: date
+      description: "Calendar date"
+      data_tests:
+        - not_null
+        - unique
+    - name: year
+      type: integer
+      description: "Calendar year"
+    - name: quarter
+      type: integer
+      description: "Calendar quarter (1-4)"
+    - name: month
+      type: integer
+      description: "Calendar month (1-12)"
+    - name: month_name
+      type: text
+      description: "Month name in FMMonth format"
+    - name: day
+      type: integer
+      description: "Day of the month"
+    - name: day_of_week
+      type: integer
+      description: "ISO day of week (Monday=1, Sunday=7)"
+    - name: day_name
+      type: text
+      description: "Day name in FMDay format"
+    - name: is_weekend
+      type: boolean
+      description: "True if the date falls on a weekend (Saturday or Sunday)"
+    - name: month_start
+      type: date
+      description: "First day of the month"
+      data_tests:
+        - not_null
+
+
+  - name: fct_sales
+    description: "Sales fact table with one row per order line. Captures transactional details including quantity, unit price, and line amount."
+    columns:
+      - name: order_item_id
+        description: "Primary key for each order line"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: "Degenerate dimension referencing the order header"
+        data_tests:
+          - not_null
+
+      - name: date_id
+        description: "Foreign key to dim_date"
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_id
+
+      - name: customer_id
+        description: "Foreign key to dim_customer"
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_id
+
+      - name: product_id
+        description: "Foreign key to dim_product"
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_id
+
+      - name: channel_id
+        description: "Foreign key to dim_channel"
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_channel')
+                field: channel_id
+
+      - name: order_status
+        description: "Status of the order at time of purchase"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["completed", "shipped", "pending", "cancelled"]
+                quote: true
+          - not_null
+
+      - name: quantity
+        description: "Number of items in the line"
+        data_tests:
+          - not_null
+
+      - name: unit_price
+        description: "Price per item on the line"
+        data_tests:
+          - not_null
+
+      - name: line_amount
+        description: "Total amount for the line (quantity * unit_price)"
+        data_tests:
+          - not_null

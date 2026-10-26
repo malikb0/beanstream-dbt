@@ -1,0 +1,9 @@
+SELECT
+	CUSTOMER_ID,
+	FIRST_NAME || ' ' || LAST_NAME AS FULL_NAME,
+	EMAIL,
+	CITY,
+	COUNTRY,
+	SIGNUP_DATE
+FROM
+	{{ ref('stg_customers') }}

@@ -1,0 +1,41 @@
+customer_id,first_name,last_name,email,city,country,signup_date
+1,Amina,Ahmed,amina.ahmed@beanstream.example,Amsterdam,Netherlands,2023-10-17
+2,Ben,Bauer,ben.bauer@beanstream.example,Berlin,Germany,2022-04-25
+3,Chloe,Costa,chloe.costa@beanstream.example,Cairo,Egypt,2022-01-26
+4,Diego,Diallo,diego.diallo@beanstream.example,Dublin,Ireland,2024-01-30
+5,Elena,Eriksen,elena.eriksen@beanstream.example,Edinburgh,United Kingdom,2022-10-09
+6,Farid,Fischer,farid.fischer@beanstream.example,Faro,Portugal,2022-09-08
+7,Grace,Gomes,grace.gomes@beanstream.example,Geneva,Switzerland,2022-08-17
+8,Hassan,Haddad,hassan.haddad@beanstream.example,Helsinki,Finland,2022-05-23
+9,Iris,Ionescu,iris.ionescu@beanstream.example,Istanbul,Turkiye,2024-01-25
+10,Jonas,Jensen,jonas.jensen@beanstream.example,Jaipur,India,2022-04-15
+11,Kavya,Khan,kavya.khan@beanstream.example,Krakow,Poland,2023-11-24
+12,Liam,Lopez,liam.lopez@beanstream.example,Lisbon,Portugal,2024-01-29
+13,Mira,Mensah,mira.mensah@beanstream.example,Madrid,Spain,2024-07-02
+14,Noah,Novak,noah.novak@beanstream.example,Nairobi,Kenya,2023-07-13
+15,Omar,Owens,omar.owens@beanstream.example,Oslo,Norway,2022-03-31
+16,Priya,Patel,priya.patel@beanstream.example,Prague,Czechia,2023-08-28
+17,Quinn,Quintero,quinn.quintero@beanstream.example,Quebec,Canada,2023-03-09
+18,Rosa,Rossi,rosa.rossi@beanstream.example,Rome,Italy,2022-02-02
+19,Sam,Silva,sam.silva@beanstream.example,Seoul,South Korea,2022-01-31
+20,Tara,Tanaka,tara.tanaka@beanstream.example,Toronto,Canada,2022-04-06
+21,Umar,Ueda,umar.ueda@beanstream.example,Amsterdam,Netherlands,2022-08-12
+22,Vera,Vargas,vera.vargas@beanstream.example,Berlin,Germany,2022-08-27
+23,Wes,Weber,wes.weber@beanstream.example,Cairo,Egypt,2023-06-02
+24,Xiu,Xu,xiu.xu@beanstream.example,Dublin,Ireland,2023-09-09
+25,Yara,Yildiz,yara.yildiz@beanstream.example,Edinburgh,United Kingdom,2022-01-28
+26,Zane,Zhao,zane.zhao@beanstream.example,Faro,Portugal,2023-07-29
+27,Aisha,Bianchi,aisha.bianchi@beanstream.example,Geneva,Switzerland,2022-07-23
+28,Bruno,Clark,bruno.clark@beanstream.example,Helsinki,Finland,2024-01-04
+29,Carla,Dubois,carla.dubois@beanstream.example,Istanbul,Turkiye,2023-10-28
+30,Dmitri,Evans,dmitri.evans@beanstream.example,Jaipur,India,2023-12-20
+31,Esme,Fernandes,esme.fernandes@beanstream.example,Krakow,Poland,2023-07-13
+32,Faisal,Grant,faisal.grant@beanstream.example,Lisbon,Portugal,2023-03-06
+33,Gita,Hoek,gita.hoek@beanstream.example,Madrid,Spain,2022-08-14
+34,Hugo,Iqbal,hugo.iqbal@beanstream.example,Nairobi,Kenya,2023-04-05
+35,Ines,Joly,ines.joly@beanstream.example,Oslo,Norway,2023-08-27
+36,Jamal,Klein,jamal.klein@beanstream.example,Prague,Czechia,2022-10-12
+37,Kiara,Laurent,kiara.laurent@beanstream.example,Quebec,Canada,2024-04-08
+38,Luca,Moreau,luca.moreau@beanstream.example,Rome,Italy,2024-06-09
+39,Nadia,Nguyen,nadia.nguyen@beanstream.example,Seoul,South Korea,2022-01-07
+40,Oscar,Okafor,oscar.okafor@beanstream.example,Toronto,Canada,2024-02-17
