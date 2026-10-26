@@ -52,3 +52,13 @@ A screenshot is evidence only when the command, page, and caption below match th
 ## 🔗 README use
 
 The three files are embedded in the root [`README.md`](../README.md#screenshots) with relative paths and captions. Keep the README, this record, and the actual files in sync; a caption that describes a different model or number is stale evidence.
+
+## 🖼️ GitHub social preview
+
+| Field | Value |
+|---|---|
+| File | `screenshots/social-preview.png` |
+| Size | 1280×640 (GitHub recommended 2:1) |
+| Use | Upload in GitHub → Settings → Social preview |
+| Text | Real verified values: `$7,261.50`, `99`, `270`, `95/95` |
+| Design | Dark instrument-panel grid, 95 filled marks, 5 hollow marks, pipeline footer |
