@@ -17,7 +17,7 @@
 | Models | Staging 5; dimensions 40 / 12 / 4 / 362; fact 270 |
 | Tests | 84 data tests; 95/95 total checks; CI green |
 | Reference | `~/projects/beanstream-dbt-reference` (one-off, not a repeatable pattern) |
-| Next action | Maintain; see [https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125](https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125) |
+| Next action | Maintain; see [https://github.com/malikb0/beanstream-dbt/actions/workflows/dbt-ci.yml](https://github.com/malikb0/beanstream-dbt/actions/workflows/dbt-ci.yml) |
 
 ## ✅ Implemented / provided
 
@@ -54,7 +54,7 @@ Maintain the public build and extend the next iteration: add a scheduled CI run,
 | Evidence | URL |
 |---|---|
 | Repository | [https://github.com/malikb0/beanstream-dbt](https://github.com/malikb0/beanstream-dbt) |
-| Green CI run | [https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125](https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125) |
+| Green CI run | [https://github.com/malikb0/beanstream-dbt/actions/workflows/dbt-ci.yml](https://github.com/malikb0/beanstream-dbt/actions/workflows/dbt-ci.yml) |
 | Case study | [`CASE-STUDY.md`](CASE-STUDY.md) |
 | Screenshots | [`screenshots/`](screenshots/) |
 

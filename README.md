@@ -14,7 +14,7 @@ BeanStream is a synthetic coffee-subscription retailer with 2024-only source dat
 [![tests 95/95](https://img.shields.io/badge/tests-95%2F95-brightgreen)](#quality-gate)
 [![license MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-**Repo:** [https://github.com/malikb0/beanstream-dbt](https://github.com/malikb0/beanstream-dbt) · **CI:** [green run](https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125)
+**Repo:** [https://github.com/malikb0/beanstream-dbt](https://github.com/malikb0/beanstream-dbt) · **CI:** [green run](https://github.com/malikb0/beanstream-dbt/actions/workflows/dbt-ci.yml)
 
 **Jump to:** [Architecture](#architecture) · [Data model](#data-model) · [Numbers](#the-numbers) · [Quickstart](#quickstart) · [Case study](CASE-STUDY.md)
 
@@ -271,7 +271,7 @@ Other evidence:
 - **KPI contract:** `seeds/expected_kpis.csv` is reconciled by `tests/assert_kpi_reconciliation.sql`.
 - **Line-level checks:** `assert_line_amount.sql` and `assert_positive_quantity.sql`.
 - **Grain proof:** 270 rows, 270 distinct `order_item_id`, 120 distinct `order_id`.
-- **CI workflow:** [`.github/workflows/dbt-ci.yml`](.github/workflows/dbt-ci.yml) starts `postgres:16`, loads the raw CSVs, and runs `dbt build`. [The public run is green](https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125).
+- **CI workflow:** [`.github/workflows/dbt-ci.yml`](.github/workflows/dbt-ci.yml) starts `postgres:16`, loads the raw CSVs, and runs `dbt build`. [The public run is green](https://github.com/malikb0/beanstream-dbt/actions/workflows/dbt-ci.yml).
 
 <a id="design-decisions"></a>
 ## 🧠 Design decisions
@@ -298,7 +298,7 @@ The incremental limitation is deliberate and visible: the filter is `order_item_
 - **Incremental is a correctness pattern here, not a scale claim.** 270 rows do not need incremental processing; the point is that the rerun is idempotent.
 - **No orchestration or cloud deployment.** The project runs locally and in a single CI job; it does not include scheduling, monitoring, or alerting.
 - **Date text names depend on the PostgreSQL locale.** Numeric date fields are stable for logic; use those.
-- **CI is one clean build, not a production deployment.** The public workflow is green ([run](https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125)); it has no scheduler, monitoring, or alerting.
+- **CI is one clean build, not a production deployment.** The public workflow is green ([run](https://github.com/malikb0/beanstream-dbt/actions/workflows/dbt-ci.yml)); it has no scheduler, monitoring, or alerting.
 
 <a id="learning-lab"></a>
 ## 🪜 Built as a learning lab

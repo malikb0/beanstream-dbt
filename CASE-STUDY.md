@@ -38,7 +38,7 @@ The source is also incomplete in useful ways. There is no raw `channels` table, 
 
 Five staging views pass **28/28** tests. The dimensions have **40 / 12 / 4 / 362** rows. `fct_sales` has **270** rows, **270** unique order-item keys, and **120** orders. The non-cancelled subset has **230** lines, **99** orders, and **448** units. **39** of the 40 customers have at least one order.
 
-`dbt build` completes with `PASS=95 WARN=0 ERROR=0`. The seeded KPI reconciliation passes. The GitHub Actions workflow starts PostgreSQL 16, loads the raw CSVs, and runs the same build. The [public run is green](https://github.com/malikb0/beanstream-dbt/actions/runs/40317787125).
+`dbt build` completes with `PASS=95 WARN=0 ERROR=0`. The seeded KPI reconciliation passes. The GitHub Actions workflow starts PostgreSQL 16, loads the raw CSVs, and runs the same build. The [public run is green](https://github.com/malikb0/beanstream-dbt/actions/workflows/dbt-ci.yml).
 
 ## 🪞 The lesson
 
