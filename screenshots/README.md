@@ -16,7 +16,7 @@ A screenshot is evidence only when the command, page, and caption below match th
 - Re-capture after a change that alters the model graph, column list, tests, or KPI numbers.
 - Store the caption beside the image in the README; keep the file name exactly as listed.
 
-## 1️⃣ `screenshots/01-lineage.png`
+## 🧭 01 — `screenshots/01-lineage.png`
 
 | Field | Record |
 |---|---|
@@ -27,7 +27,7 @@ A screenshot is evidence only when the command, page, and caption below match th
 | **Caption** | The dbt lineage graph for `fct_sales`: raw order and order-item sources through staging and dimensions into the incremental fact, with KPI tests downstream. |
 | **File check** | PNG, 1760×1160, 125,897 bytes |
 
-## 2️⃣ `screenshots/02-model-detail.png`
+## 🧱 02 — `screenshots/02-model-detail.png`
 
 | Field | Record |
 |---|---|
@@ -38,7 +38,7 @@ A screenshot is evidence only when the command, page, and caption below match th
 | **Caption** | `fct_sales` model detail: column descriptions and the data tests attached to the fact table. |
 | **File check** | PNG, 1800×1600, 185,314 bytes |
 
-## 3️⃣ `screenshots/03-kpi-query.png`
+## 📊 03 — `screenshots/03-kpi-query.png`
 
 | Field | Record |
 |---|---|

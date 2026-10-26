@@ -20,6 +20,11 @@ BeanStream is a synthetic coffee-subscription retailer with 2024-only source dat
 
 ---
 
+<a id="status"></a>
+## ✅ Status
+
+**Published and verified.** The public repo is live, the three screenshots are real, and GitHub Actions passes **95/95** against a fresh PostgreSQL 16 database. Local and remote builds agree on every KPI.
+
 <a id="what-this-is"></a>
 ## ☕ What this is
 
@@ -303,7 +308,7 @@ This repository is also a training artifact. The modelling work follows a seven-
 The ladder is included as a replayable design record, not a to-do list. The models, tests, and numbers above are the built result; the cards show how the result was earned and how to extend it.
 
 <a id="document-map"></a>
-## 🗺️ Document map
+## 🗺️ Documentation map
 
 | Document | Read it for |
 |---|---|
@@ -327,6 +332,6 @@ The ladder is included as a replayable design record, not a to-do list. The mode
 5. **Add orchestration and freshness checks.** Schedule the build, alert on failure, and stop treating a local `make build` as the only operational signal.
 
 <a id="license"></a>
-## 📄 License
+## 📄 Licence
 
 MIT for the project code and documentation. The synthetic data is attributed in [`NOTICE.md`](NOTICE.md); provenance and upstream licence are recorded there. No real customer data is included.

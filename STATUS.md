@@ -45,6 +45,10 @@
 
 - **None.** The project is public and the CI run is green.
 
+## 🔜 Next action
+
+Maintain the public build and extend the next iteration: add a scheduled CI run, model contracts/exposures, and a late-arriving correction test. The project itself has no open blocker.
+
 ## 🔗 Published evidence
 
 | Evidence | URL |
