@@ -7,8 +7,8 @@
 > commands and review details needed to resume quickly.
 
 **Last updated:** 2026-10-26
-**Active gate:** Complete — published
-**Docs check:** `PROJECT DOCS: OK` (screenshot warning only)
+**Active gate:** Complete — published, released, CI green
+**Docs check:** `PROJECT DOCS: OK`
 
 ## 🚦 Current state
 
@@ -38,19 +38,27 @@
 - Full refresh → 270 rows; two normal runs → `INSERT 0 0` each; final **270 / 270 / max 270**.
 - KPI reconciliation covers all five seed metrics; AOV 73.35, cancellation 17.5%, customers with orders 39.
 - Temporary failure-drill test is absent; positive-quantity test passes.
-- Three screenshots captured: lineage, model detail, KPI query.
-- Public repo and CI green: https://github.com/malikb0/beanstream-dbt
+- Three evidence screenshots captured: lineage, model detail, KPI query.
+- Social preview created: `screenshots/social-preview.png` (1280×640).
+- Public repo: https://github.com/malikb0/beanstream-dbt
+- CI green: https://github.com/malikb0/beanstream-dbt/actions/workflows/dbt-ci.yml
+- Release: https://github.com/malikb0/beanstream-dbt/releases/tag/v1.0.0
 - No deprecation warnings.
 
 ## 🚧 Open cleanup
 
-None. Task 7 is complete and published.
+Only manual GitHub settings remain:
+
+1. Upload `screenshots/social-preview.png` in **Settings → Social preview**.
+2. Pin `malikb0/beanstream-dbt` on the GitHub profile.
+
+No code, docs, CI, or publication blocker remains.
 
 ## ▶️ Next session
 
 1. Extend CI with a schedule and dependency cache.
 2. Add model contracts/exposures and a late-arriving correction test.
-3. Keep the README, screenshots, and CI badge current.
+3. Keep the README, screenshots, social preview, and CI badge current.
 
 ## 🧪 Useful commands
 
@@ -76,6 +84,7 @@ python3 tools/check_project_docs.py .
 
 - `STATUS.md` — current gate and user-facing next action.
 - `TASKS.md#task-7` — completed task card.
+- `CASE-STUDY.md` — problem, decisions, result, and lessons.
 - `docs/data-dictionary.md` — KPI formulas and source contract.
 
 Do not read CV-wide plans, trackers, or other projects unless the owner explicitly asks.
@@ -94,3 +103,4 @@ Do not read CV-wide plans, trackers, or other projects unless the owner explicit
 | 2026-10-26 | Task 5 passed: 95/95 checks; all KPI assertions pass. |
 | 2026-10-26 | Task 6 passed: incremental fact; two reruns idempotent at 270; 95/95 build. |
 | 2026-10-26 | Task 7 passed: screenshots, README/case study, public repo, green CI. |
+| 2026-10-26 | Release v1.0.0 published; topics set; social preview image added. |
